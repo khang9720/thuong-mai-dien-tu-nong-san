@@ -1,0 +1,107 @@
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+.wrapper {
+  margin-top: 80px;
+}
+.row {
+  width: 70%;
+  // border: black solid;
+  margin: 0;
+  padding: 0;
+  float: none;
+  margin: 0 auto;
+}
+.form-signin {
+  max-width: 650px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  margin: 0%;
+  border-radius: 10px 0 0 10px;
+  background-color: white;
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+
+    &:focus {
+      z-index: 2;
+    }
+  }
+  input {
+    display: block;
+    width: 90%;
+    margin-bottom: 1em;
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 1px solid #757575;
+  }
+  #toggler,
+  #retypeToggler {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-100%) translateX(-220%);
+    cursor: pointer;
+  }
+  button[type='submit'] {
+    width: 90%;
+    background-color: #23c53e;
+    color: white;
+  }
+}
+.bglogin {
+  margin-left: 0;
+  background: linear-gradient(to top left, #799ae1, #79e18a, #b6ef75, #79e18a);
+  border-radius: 0px 10px 10px 0;
+  background-size: 200% 200%;
+  @include animation('b 8s ease infinite');
+  a {
+    color: white;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    margin-left: -1em;
+
+    text-decoration: none;
+    font-family: Impact;
+    font-size: 70px;
+    transform: rotate(90deg);
+  }
+}
+@include keyframes(b) {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
+}

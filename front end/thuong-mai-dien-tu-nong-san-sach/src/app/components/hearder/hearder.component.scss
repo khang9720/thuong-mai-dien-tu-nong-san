@@ -1,0 +1,59 @@
+/*******************************/
+/********* Hearder CSS **********/
+/*******************************/
+nav {
+  background-color: #23c53e;
+  padding: 1.5em 15em 1.5em 15em;
+  #search form {
+    margin-left: 5%;
+    width: 100%;
+    // border: 1px solid rgba(0, 0, 0, 0.8);
+  }
+  .title {
+    color: white;
+    font-family: Impact;
+    font-size: 50px;
+  }
+  .row {
+    width: 100%;
+    .i-search {
+      width: 80%;
+      border: none;
+    }
+    .btn-search {
+      color: white;
+      background-color: #1b872d;
+      border: none;
+    }
+    #cart {
+      float: left;
+      padding-right: 0em;
+      color: white;
+      i {
+        color: white;
+        margin-right: 10px;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
+      }
+    }
+
+    #account {
+      float: left;
+      padding-right: 0em;
+      i {
+        color: white;
+        margin-right: 15px;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
+      }
+    }
+  }
+}
