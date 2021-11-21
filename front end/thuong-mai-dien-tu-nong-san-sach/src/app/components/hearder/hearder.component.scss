@@ -4,56 +4,86 @@
 nav {
   background-color: #23c53e;
   padding: 1.5em 15em 1.5em 15em;
-  #search form {
-    margin-left: 5%;
-    width: 100%;
-    // border: 1px solid rgba(0, 0, 0, 0.8);
+  form {
+    width: 40%;
   }
   .title {
     color: white;
     font-family: Impact;
     font-size: 50px;
   }
-  .row {
+  .flexbox {
     width: 100%;
-    .i-search {
-      width: 80%;
-      border: none;
+    display: flex;
+    .stretch {
+      flex: 1;
     }
-    .btn-search {
+    .normal {
+      flex: 0;
+      margin: 0 0 0 1rem;
+    }
+    div input {
+      padding: 0.5em 1em;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+    div button {
+      padding: 0.5em 1em;
+      white-space: nowrap;
+      border: none;
       color: white;
       background-color: #1b872d;
-      border: none;
+      border-radius: 5px;
     }
-    #cart {
-      float: left;
-      padding-right: 0em;
+  }
+  #navbarNavDropdown {
+    float: left;
+    margin-left: 1%;
+    padding-left: 1%;
+    li {
+      margin: 1em;
+    }
+    i {
       color: white;
-      i {
-        color: white;
-        margin-right: 10px;
-      }
-      a {
-        color: white;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        display: inline-block;
-      }
+      margin-right: 10px;
     }
-
-    #account {
-      float: left;
-      padding-right: 0em;
-      i {
-        color: white;
-        margin-right: 15px;
-      }
-      a {
-        color: white;
-        text-decoration: none;
-        font-family: Arial, Helvetica, sans-serif;
-        display: inline-block;
-      }
+    a {
+      color: white;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      display: inline-block;
     }
+  }
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    margin: 0;
+    padding: 1%;
+    width: 100%;
+    .title {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+  nav {
+    margin: 0;
+    padding: 1%;
+    width: 100%;
+    .title {
+      font-size: 20px;
+      padding-right: 1em;
+      margin: 0;
+    }
+  }
+}
+@media only screen and (min-width: 1080px) {
+  nav {
+    padding: 1.5em 15em 1.5em 15em !important;
+  }
+  .title {
+    font-size: 50px !important;
   }
 }
