@@ -1,0 +1,21 @@
+<div class="row">
+    <button class="btn btn-success" style="margin-left: 20px;" data-toggle="modal" data-target="#exampleModal">Thêm nhà cung cấp</button>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+          <tr>
+            <th>Mã nhà cung cấp</th>
+            <th>Tên nhà cung cấp</th>
+            <th>Độ tin cậy</th>
+            <th>Chức năng</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let item of producterr">
+            <td>{{item.Ma_NSX}}</td>
+            <td>{{item.Ten_NSX}}</td>
+            <td>{{item.Do_Tin_Cay}}</td>
+            <td>
+              <button type="button" class="btn btn-primary">Sửa nhà cung cấp</button>
+            </td>
+      </tbody>
+    </table>
+  </div>
