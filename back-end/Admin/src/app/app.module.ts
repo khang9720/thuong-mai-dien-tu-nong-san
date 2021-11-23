@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -59,7 +60,8 @@ const routes: Routes = [
       appId: "1:692235491474:web:e3d29fcfd5fc2e8c0cee4b",
       measurementId: "G-QT2GBXKBGB"
     }),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    GooglePlaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
