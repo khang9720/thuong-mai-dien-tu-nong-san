@@ -16,6 +16,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { TypeproductComponent } from './typeproduct/typeproduct.component';
 import { ProducterComponent } from './producter/producter.component';
+import { StaffComponent } from './staff/staff.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'product',component:ProductComponent},
   { path: 'register',component:RegisterComponent},
   { path: 'type',component:TypeproductComponent},
-  { path: 'producter',component:ProducterComponent}
+  { path: 'producter',component:ProducterComponent},
+  { path: 'staff' ,component:StaffComponent}
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Routes = [
     ProductComponent,
     RegisterComponent,
     TypeproductComponent,
-    ProducterComponent
+    ProducterComponent,
+    StaffComponent
   ],
   imports: [
     BrowserModule,

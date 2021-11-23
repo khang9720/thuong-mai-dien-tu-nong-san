@@ -1,0 +1,27 @@
+<div class="row">
+    <button class="btn btn-success" style="margin-left: 20px;" data-toggle="modal" data-target="#exampleModal">Thêm nhà cung cấp</button>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+          <tr>
+            <th>Mã nhân viên</th>
+            <th>Tên nhân viên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Địa chỉ</th>
+            <th>Số điện thoại</th>
+            <th>Chức năng</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let item of staff">
+            <td>{{item.Ma_NV}}</td>
+            <td>{{item.Ten_NV}}</td>
+            <td>{{item.Ngay_Sinh}}</td>
+            <td>{{checkSex(item.Gioi_Tinh)}}{{gender}}</td>
+            <td>{{item.Dia_Chi}}</td>
+            <td>{{item.SDT}}</td>
+            <td>
+              <button type="button" class="btn btn-primary">Sửa nhân viên</button>
+            </td>
+      </tbody>
+    </table>
+  </div>
