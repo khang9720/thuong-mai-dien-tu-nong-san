@@ -56,14 +56,22 @@ export class StaffComponent implements OnInit {
   onSubmit()
   {
     console.log(this.staffData.value);
-    this.add_stf.addStaff(this.staffData.value).subscribe((res:any)=>{
-      alert(res.message);
-      if(res.status == true)
-      {
-        this.ShowStaff();
-        
-      }
-    });
+    if(this.staffData.value.SDT.length >11)
+    {
+      alert("Số điện thoại quá 10 số");
+    }
+    else
+    {
+      this.add_stf.addStaff(this.staffData.value).subscribe((res:any)=>{
+        alert(res.message);
+        if(res.status == true)
+        {
+          this.ShowStaff();
+          
+        }
+      });
+    }
+    
   }
   numberOnly(event:any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -73,6 +81,7 @@ export class StaffComponent implements OnInit {
     return true;
 
   }
+  status:any;
   ShowStaffNotAccount()
   {
     this.stff.showStaffNotAccount().subscribe((res:Staff[])=>{

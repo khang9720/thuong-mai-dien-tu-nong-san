@@ -27,4 +27,23 @@ export class AddStaffService {
   {
     return this.http.get<Staff[]>(this.fixStaffURL + id);
   }
+  //Add account Staff
+  addAcc = liink.bsaeURL + 'Register.php';
+  Add_Account(AccountData:any,Ma_NV:any,SDT:any)
+  {
+    let payLoad = new HttpParams();
+    payLoad = payLoad.append('Ma_NV',Ma_NV);
+    payLoad = payLoad.append('SDT',SDT);
+    payLoad = payLoad.append('Password',AccountData.Password);
+    payLoad = payLoad.append('KichHoat',AccountData.KichHoat);
+    return this.http.post(this.addAcc,payLoad);
+  }
+  stats = liink.bsaeURL + 'Status_Staff.php';
+  Status_Account(KichHoat:any,Ma_NV:any)
+  {
+    let payLoad = new HttpParams();
+    payLoad = payLoad.append('KichHoat',KichHoat);
+    payLoad = payLoad.append('Ma_NV',Ma_NV);
+    return this.http.post(this.stats,payLoad);
+  }
 }

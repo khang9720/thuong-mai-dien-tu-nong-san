@@ -9,12 +9,12 @@
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
   
-                  <form class="mx-1 mx-md-4">
+                  <form class="mx-1 mx-md-4" [formGroup]="fromAcc">
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="form3Example1c" class="form-control" [value]='code_Staff' disabled/>
+                        <input type="text" id="form3Example1c" class="form-control" [value]='code_Staff'  disabled />
                         <label class="form-label" for="form3Example1c">Mã nhân viên</label>
                       </div>
                     </div>
@@ -30,7 +30,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" class="form-control" />
+                        <input type="password" id="form3Example4c" class="form-control" formControlName='Password'/>
                         <label class="form-label" for="form3Example4c">Mật khẩu</label>
                       </div>
                     </div>
@@ -38,8 +38,9 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-check fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="checkbox" id="form3Example4c" class="form-control" />
-                          <label class="form-label" for="form3Example4c">Kích hoạt</label>
+                            <input type="radio" value="1" name="KichHoat"   formControlName="KichHoat"> Kích hoạt &nbsp;&nbsp;&nbsp;
+                            <input type="radio" value="0" name="KichHoat"   formControlName="KichHoat"> Không kích hoạt<br>
+                          
                         </div>
                       </div>
   
@@ -60,7 +61,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                              <button type="button" class="btn btn-primary">Yes</button>
+                              <button type="button" class="btn btn-primary" (click)="onSubmit()" data-dismiss="modal">Yes</button>
                             </div>
                           </div>
                         </div>

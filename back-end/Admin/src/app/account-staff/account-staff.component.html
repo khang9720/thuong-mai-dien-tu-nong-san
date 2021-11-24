@@ -13,7 +13,7 @@
             <td>{{item.Ten_NV}}</td>
             <td>{{item.SDT}}</td>
             <td>
-              <button type="button" class="btn btn-primary">{{FilterAccount(item.KichHoat)}}{{Acces}}</button>
+              <button type="button" class="btn btn-primary" (click)="buutonStatus(item.KichHoat,item.Ma_NV)">{{FilterAccount(item.KichHoat)}}{{Acces}}</button>
             </td>
       </tbody>
     </table>
