@@ -16,14 +16,16 @@ export class StaffComponent implements OnInit {
 
   ngOnInit(): void {
     this.ShowStaff();
+    
   }
   //Show data staff
   staff!:Staff[];
   ShowStaff()
   {
+    
     this.stff.showAllStaff().subscribe((res:Staff[])=>{
       this.staff = res;
-      console.log(res);
+      //console.log(res);
     });
   }
   gender:any;
@@ -59,7 +61,7 @@ export class StaffComponent implements OnInit {
       if(res.status == true)
       {
         this.ShowStaff();
-        this.navigateToStaff();
+        
       }
     });
   }
@@ -71,7 +73,26 @@ export class StaffComponent implements OnInit {
     return true;
 
   }
-  navigateToStaff(){
-    this.rt.navigate(['staff']);     
-}
+  ShowStaffNotAccount()
+  {
+    this.stff.showStaffNotAccount().subscribe((res:Staff[])=>{
+      this.staff = res;
+      //console.log(res);
+    });
+  }
+  ShowStaffHasAccount()
+  {
+    this.stff.showStaffHasAccount().subscribe((res:Staff[])=>{
+      this.staff = res;
+      //console.log(res);
+    });
+  }
+  show = false;
+  AddAccount(a:any)
+  {
+    if(a == 1)
+      this.show = true;
+    else
+      this.show = false;
+  }
 }

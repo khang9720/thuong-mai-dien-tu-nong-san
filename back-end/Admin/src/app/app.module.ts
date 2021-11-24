@@ -18,16 +18,18 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { TypeproductComponent } from './typeproduct/typeproduct.component';
 import { ProducterComponent } from './producter/producter.component';
 import { StaffComponent } from './staff/staff.component';
+import { AccountStaffComponent } from './account-staff/account-staff.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginAdminComponent },
   { path: 'index',component: IndexComponent},
   { path: 'product',component:ProductComponent},
-  { path: 'register',component:RegisterComponent},
+  { path: 'register/:id',component:RegisterComponent},
   { path: 'type',component:TypeproductComponent},
   { path: 'producter',component:ProducterComponent},
-  { path: 'staff' ,component:StaffComponent}
+  { path: 'staff' ,component:StaffComponent},
+  { path: 'account' ,component:AccountStaffComponent}
 ];
 
 @NgModule({
@@ -41,7 +43,8 @@ const routes: Routes = [
     RegisterComponent,
     TypeproductComponent,
     ProducterComponent,
-    StaffComponent
+    StaffComponent,
+    AccountStaffComponent
   ],
   imports: [
     BrowserModule,

@@ -5,4 +5,5 @@ export class Staff{
     Gioi_Tinh:any;
     Dia_Chi:any;
     SDT:any;
+    Check:any;
 }

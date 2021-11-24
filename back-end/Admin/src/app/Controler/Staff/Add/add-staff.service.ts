@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpParams} from '@angular/common/http';
 import {liink} from '../../../../Link/link';
+import { Staff } from '../../../../Model/staff.model'
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +20,11 @@ export class AddStaffService {
     payLoad = payLoad.append('Dia_Chi',StaffData.Dia_Chi);
     payLoad = payLoad.append('SDT',StaffData.SDT);
     return this.http.post(this.addStaffURL,payLoad);
+  }
+
+  fixStaffURL = liink.bsaeURL + 'Get_ID_Staff.php?Ma_NV=';
+  fixStaff(id:any)
+  {
+    return this.http.get<Staff[]>(this.fixStaffURL + id);
   }
 }
