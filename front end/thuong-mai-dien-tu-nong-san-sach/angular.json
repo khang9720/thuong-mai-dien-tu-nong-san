@@ -37,7 +37,8 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/show-hide-password.js"
+              "src/assets/js/show-hide-password.js",
+              "src/assets/js/qty.js"
             ]
           },
           "configurations": {

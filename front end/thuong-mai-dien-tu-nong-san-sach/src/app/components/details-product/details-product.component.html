@@ -1,0 +1,48 @@
+<div class="row address">
+  <div class="col">
+    Trang chủ
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    Chi tiết sản phẩm
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    Chi tiết sản phẩm
+  </div>
+</div>
+<div class="row row-details">
+  <div class="col-5 img">
+    <img
+      class="card-img-top"
+      src="http://www.azspagirls.com/files/2010/09/orange.jpg"
+      alt="Card image cap"
+    />
+    <div class="contact">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-facebook-messenger"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fas fa-link"></i>
+    </div>
+  </div>
+  <div class="col-7 col-details">
+    <div class="title">
+      <h2>Tên sản phẩm</h2>
+    </div>
+    <div class="price">
+      <span>
+        <span class="card-price">40,000đ</span>
+        <span class="card-original-price">70,000đ</span>
+      </span>
+    </div>
+    <div class="quantity">
+      <p>Số lượng</p>
+      <form id="myform" method="POST" action="#">
+        <input type="button" value="-" class="qtyminus" field="quantity" />
+
+        <input type="text" name="quantity" value="0" class="qty" />
+
+        <input type="button" value="+" class="qtyplus" field="quantity" />
+      </form>
+    </div>
+    <a routerLink="details" class="btn btn-primary" id="btn-them">
+      Thêm
+    </a>
+  </div>
+</div>

@@ -6,7 +6,8 @@ import { FooterComponent } from './components/footer/footer.component'
 import { HearderComponent } from './components/hearder/hearder.component'
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component'
+import { HomeComponent } from './components/home/home.component';
+import { DetailsProductComponent } from './components/details-product/details-product.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HomeComponent } from './components/home/home.component'
     HearderComponent,
     RegisterComponent,
     HomeComponent,
+    DetailsProductComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
