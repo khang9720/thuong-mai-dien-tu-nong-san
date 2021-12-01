@@ -46,4 +46,17 @@ export class AddStaffService {
     payLoad = payLoad.append('Ma_NV',Ma_NV);
     return this.http.post(this.stats,payLoad);
   }
+
+  statsFixStaffUrl = liink.bsaeURL + 'Fix_Staff.php';
+  Fix_Data_Staff(StaffData:any,id:any)
+  {
+    let payLoad = new HttpParams();
+    payLoad = payLoad.append('Ma_NV',id);
+    payLoad = payLoad.append('Ten_NV',StaffData.Ten_NV);
+    payLoad = payLoad.append('Ngay_Sinh',StaffData.Ngay_Sinh);
+    payLoad = payLoad.append('Gioi_Tinh',StaffData.Gioi_Tinh);
+    payLoad = payLoad.append('Dia_Chi',StaffData.Dia_Chi);
+    payLoad = payLoad.append('SDT',StaffData.SDT);
+    return this.http.post(this.statsFixStaffUrl,payLoad);
+  }
 }

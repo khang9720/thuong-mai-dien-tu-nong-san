@@ -58,4 +58,34 @@ export class AccountStaffComponent implements OnInit {
     }
   }
 
+  resss2 : any;
+  sortAcess()
+  {
+    if(this.resss2)
+    {
+      let newarrs = this.staff.sort((a:any,b:any)=>b.KichHoat - a.KichHoat)
+      this.resss2 = !this.resss2
+    }
+    else if(!this.resss2)
+    {
+      let newarrs = this.staff.sort((a:any,b:any)=>a.KichHoat - b.KichHoat)
+      this.resss2 = !this.resss2
+    }
+  }
+ p:any;
+ NV:any;
+ SearchNC(){
+  this.staff = this.staff.filter(res =>{
+    return res.Ten_NV.toLocaleLowerCase().match(this.NV.toLocaleLowerCase());
+    
+  });
+
+  }
+  emtySearch()
+  {
+    if(this.NV == "")
+    {
+      this.ngOnInit();
+    }
+  }
 }

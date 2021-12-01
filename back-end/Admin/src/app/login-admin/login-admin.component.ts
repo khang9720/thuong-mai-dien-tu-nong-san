@@ -30,16 +30,20 @@ export class LoginAdminComponent implements OnInit {
   //Nhấn đăng nhập
   onSubmitLogin()
   {
-    console.log(this.loginFrom.value);
+    //console.log(this.loginFrom.value);
     this.lg_ad.loginAD(this.loginFrom.value).subscribe(res=>{
       if(res){
-        console.log(JSON.stringify(res));
+        //console.log(JSON.stringify(res));
+        //localStorage.setItem("name",this.data.Ten);
         this.data = res;
         switch(this.data.Status){
           case 3:
+            localStorage.setItem("name",this.data.Ten);
             this.navigateToHome();
           //console.log(this.ac.Token);
+          //alert(this.data.Ten);
           localStorage.setItem("token",this.data.Token); //Chuyển token để xác nhận đăng nhập
+           //Chuyển Tên để xác show tên ADMIN
           break;
           case 2:
             alert(this.data.Mess);

@@ -1,14 +1,20 @@
 <div class="row">
+  <div class="form-outline" style="margin-left: 20px;">
+    <input type="search" id="form1" class="form-control" [(ngModel)]="NV" (ngModelChange)="emtySearch()" placeholder="Nhập tên nhân viên"/>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="SearchNC()">
+    <i class="fas fa-search"></i>
+  </button>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
           <tr>
             <th>Mã nhân viên</th>
             <th>Tên nhân viên</th>
             <th>Số điện thoại</th>
-            <th>Chức năng</th>
+            <th>Chức năng &nbsp;<i (click)="sortAcess()" class="fa fa-sort"></i></th>
           </tr>
       </thead>
-      <tbody *ngFor="let item of staff">
+      <tbody *ngFor="let item of staff | paginate: { itemsPerPage: 10, currentPage: p }">
             <td>{{item.Ma_NV}}</td>
             <td>{{item.Ten_NV}}</td>
             <td>{{item.SDT}}</td>
@@ -16,5 +22,6 @@
               <button type="button" class="btn btn-primary" (click)="buutonStatus(item.KichHoat,item.Ma_NV)">{{FilterAccount(item.KichHoat)}}{{Acces}}</button>
             </td>
       </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </table>
   </div>

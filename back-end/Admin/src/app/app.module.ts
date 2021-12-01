@@ -19,7 +19,10 @@ import { TypeproductComponent } from './typeproduct/typeproduct.component';
 import { ProducterComponent } from './producter/producter.component';
 import { StaffComponent } from './staff/staff.component';
 import { AccountStaffComponent } from './account-staff/account-staff.component';
-
+import { FixProductComponent } from './fix-product/fix-product.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
+import {Ng2SearchPipe} from 'ng2-search-filter';
 
 const routes: Routes = [
   { path: '', component: LoginAdminComponent },
@@ -29,7 +32,8 @@ const routes: Routes = [
   { path: 'type',component:TypeproductComponent},
   { path: 'producter',component:ProducterComponent},
   { path: 'staff' ,component:StaffComponent},
-  { path: 'account' ,component:AccountStaffComponent}
+  { path: 'account' ,component:AccountStaffComponent},
+  { path: 'fixProduct/:id',component:FixProductComponent}
 ];
 
 @NgModule({
@@ -44,10 +48,12 @@ const routes: Routes = [
     TypeproductComponent,
     ProducterComponent,
     StaffComponent,
-    AccountStaffComponent
+    AccountStaffComponent,
+    FixProductComponent
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -64,9 +70,10 @@ const routes: Routes = [
       measurementId: "G-QT2GBXKBGB"
     }),
     AngularFirestoreModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    OrderModule,
   ],
-  providers: [],
+  providers: [Ng2SearchPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

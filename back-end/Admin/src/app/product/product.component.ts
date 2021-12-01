@@ -5,7 +5,9 @@ import { Type } from '../../Model/type.model';
 import { ProductService } from '../Controler/ShowData/product.service';
 import { ThemSpService } from '../Controler/Product/Add/them-sp.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AngularFireStorage } from '@angular/fire/compat/storage'
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { FixService } from '../Controler/Product/Fix/fix.service';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -13,14 +15,32 @@ import { AngularFireStorage } from '@angular/fire/compat/storage'
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private product:ProductService,private add:ThemSpService,private fromBD:FormBuilder,private ff:AngularFireStorage) { this.innitFromProducts();}
+  constructor(private product:ProductService,private add:ThemSpService,private fromBD:FormBuilder,private ff:AngularFireStorage,private fix:FixService) { this.innitFromProducts();}
   sanpham!: Product[];
   isLoading = false;
+  SP:any;
   ngOnInit(): void {
     this.getAllPro();
     this.getType();
     this.getProducter();
   }
+  SearchNC(){
+    
+    
+      this.sanpham = this.sanpham.filter(res =>{
+        return res.Ten_SP.toLocaleLowerCase().match(this.SP.toLocaleLowerCase());
+        
+      });
+    
+  }
+  emtySearch()
+  {
+    if(this.SP == "")
+    {
+      this.ngOnInit();
+    }
+  }
+
   //Get data to API
   getAllPro(){
     this.product.getAllProduct().subscribe((data:Product[])=>{
@@ -111,4 +131,58 @@ export class ProductComponent implements OnInit {
     //console.log(this.name);
   }
   link:any;
+  //switches 
+  fixCheck(KH:any,MSP:any)
+  {
+    if(KH == 0)
+    {
+      this.fix.Check_Data(1,MSP).subscribe((res:any)=>{
+        alert(res.message)
+      })
+    }
+    else
+    {
+      this.fix.Check_Data(0,MSP).subscribe((res:any)=>{
+        alert("Thành công vô hiệu hóa")
+      })
+    }
+  }
+  //Filter Pice
+
+  resss:boolean =true;
+  
+
+  sortPirce()
+  {
+    if(this.resss)
+    {
+      let newarr = this.sanpham.sort((a:any,b:any)=>b.Don_Gia - a.Don_Gia)
+      this.resss = !this.resss
+    }
+    else if(!this.resss)
+    {
+      let newarr = this.sanpham.sort((a:any,b:any)=>a.Don_Gia - b.Don_Gia)
+      this.resss = !this.resss
+    }
+  }
+
+  resss2:boolean =true;
+  
+
+  sortID()
+  {
+    if(this.resss2)
+    {
+      let newarrs = this.sanpham.sort((a:any,b:any)=>b.Giam_Gia - a.Giam_Gia)
+      this.resss2 = !this.resss2
+    }
+    else if(!this.resss2)
+    {
+      let newarrs = this.sanpham.sort((a:any,b:any)=>a.Giam_Gia - b.Giam_Gia)
+      this.resss2 = !this.resss2
+    }
+  }
+
+  p:any;
+
 }

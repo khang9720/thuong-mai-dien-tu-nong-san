@@ -10,9 +10,10 @@ export class MenuComponent implements OnInit {
   constructor(private rt:Router) { }
   
   token:any;
-
+  name:any;
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
+    this.name = localStorage.getItem('name');
     if(!this.token)
     {
       this.rt.navigate(['']);

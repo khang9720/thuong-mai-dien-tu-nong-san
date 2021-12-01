@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class StaffComponent implements OnInit {
 
-  constructor(private stff:ShowStaffService,private add_stf :AddStaffService,private fromBD:FormBuilder,private rt:Router) { this.initFromStaff(); }
+  constructor(private stff:ShowStaffService,private add_stf :AddStaffService,private fromBD:FormBuilder,private rt:Router) { this.initFromStaff();this.initFrom(); }
 
   ngOnInit(): void {
     this.ShowStaff();
@@ -104,4 +104,81 @@ export class StaffComponent implements OnInit {
     else
       this.show = false;
   }
+
+  code:any;
+  name:any;
+  birth:any;
+  sex:any;
+  adress:any;
+  phone:any;
+  stfffff!:Staff;
+  GetIDStaff(id:any)
+  {
+    this.add_stf.fixStaff(id).subscribe((res:any)=>{
+      this.stfffff = res;
+      this.code = this.stfffff.Ma_NV;
+      this.name = this.stfffff.Ten_NV;
+      this.birth = this.stfffff.Ngay_Sinh;
+      this.sex = this.stfffff.Gioi_Tinh;
+      this.adress = this.stfffff.Dia_Chi;
+      this.phone = this.stfffff.SDT;
+      this.fromProduct2.patchValue(this.stfffff);
+    });
+  }
+
+  fromProduct2!:FormGroup;
+  initFrom()
+  {
+    this.fromProduct2 = this.fromBD.group({
+      
+      Ten_NV: new FormControl('',[Validators.required,Validators.maxLength(15)]),
+      Ngay_Sinh: new FormControl('',[Validators.required,Validators.maxLength(15)]),
+      Gioi_Tinh: new FormControl('',[Validators.required,Validators.maxLength(15)]),
+      Dia_Chi: new FormControl('',[Validators.required,Validators.maxLength(15)]),
+      SDT: new FormControl('',[Validators.required,Validators.maxLength(15)])
+    });
+  }
+  submitFix()
+  {
+    console.log(this.fromProduct2.value);
+    console.log(this.code);
+    this.add_stf.Fix_Data_Staff(this.fromProduct2.value,this.code).subscribe((res:any)=>{
+      alert(res.message);
+    })
+  }
+
+  resss2:boolean =true;
+  
+
+  sortSex()
+  {
+    if(this.resss2)
+    {
+      let newarrs = this.staff.sort((a:any,b:any)=>b.Gioi_Tinh - a.Gioi_Tinh)
+      this.resss2 = !this.resss2
+    }
+    else if(!this.resss2)
+    {
+      let newarrs = this.staff.sort((a:any,b:any)=>a.Gioi_Tinh - b.Gioi_Tinh)
+      this.resss2 = !this.resss2
+    }
+  }
+  p:any;
+  NV:any;
+ SearchNC(){
+  this.staff = this.staff.filter(res =>{
+    return res.Ten_NV.toLocaleLowerCase().match(this.NV.toLocaleLowerCase());
+    
+  });
+
+  }
+  emtySearch()
+  {
+    if(this.NV == "")
+    {
+      this.ngOnInit();
+    }
+  }
+
 }
+

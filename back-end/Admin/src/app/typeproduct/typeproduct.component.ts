@@ -10,7 +10,7 @@ import { TypeService} from '../Controler/Product/Add/Type/type.service'
 })
 export class TypeproductComponent implements OnInit {
 
-  constructor(private typpe:ThemSpService,private fromBD:FormBuilder,private tyype:TypeService) {this.innitFromProducts(); }
+  constructor(private typpe:ThemSpService,private fromBD:FormBuilder,private tyype:TypeService) {this.innitFromProducts();this.innitFromFixType() }
   type!:Type[];
   ngOnInit(): void {
     this.getType();
@@ -41,4 +41,34 @@ export class TypeproductComponent implements OnInit {
       alert(this.dataType.message);
      }) 
   }
+
+  Ma:any;
+  Name:any;
+  Typppe!:Type;
+  getIDType(id:any)
+  {
+    this.tyype.getIDType(id).subscribe((res:any)=>{
+      this.Typppe = res;
+      this.Ma = this.Typppe.Ma_LSP;
+      this.Name = this.Typppe.Ten_LSP;
+      this.fromProduct2.patchValue(this.Typppe);
+    })
+  }
+
+  fromProduct2!: FormGroup;
+  innitFromFixType()
+  {
+    this.fromProduct2 = this.fromBD.group({
+      Ten_LSP: new FormControl('',[Validators.required,Validators.maxLength(15)])
+    });
+  }
+  onSubmitFix()
+  {
+    console.log(this.fromProduct2.value);
+    this.tyype.fixData(this.fromProduct2.value,this.Ma).subscribe((res:any)=>{
+      alert(res.message);
+      this.getType();
+    })
+  }
+  p:any;
 }
