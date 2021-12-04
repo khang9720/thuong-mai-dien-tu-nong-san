@@ -7,7 +7,8 @@ import { HearderComponent } from './components/hearder/hearder.component'
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { DetailsProductComponent } from './components/details-product/details-product.component'
+import { DetailsProductComponent } from './components/details-product/details-product.component';
+import { CartComponent } from './components/cart/cart.component'
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DetailsProductComponent } from './components/details-product/details-pr
     RegisterComponent,
     HomeComponent,
     DetailsProductComponent,
+    CartComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

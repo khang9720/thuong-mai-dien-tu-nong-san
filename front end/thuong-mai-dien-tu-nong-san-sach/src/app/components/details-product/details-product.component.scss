@@ -1,18 +1,46 @@
+$sizePrice: 20px;
 .address {
   width: 100%;
   display: inline-block;
+  margin: 10px 0px;
 }
-.row-details {
+.row-detail {
   background-color: white;
+  margin-bottom: 3%;
+
   .img {
     margin: 3%;
     max-width: 450px;
     max-height: 450px;
+    .contact {
+      span {
+        font-size: 16px;
+        margin-right: 5%;
+      }
+      a {
+        i {
+          margin-right: 5%;
+          font-size: 20px;
+        }
+        .fa-facebook-f {
+          color: #039be5;
+        }
+        .fa-facebook-messenger {
+          color: #448aff;
+        }
+        .fa-twitter {
+          color: #448aff;
+        }
+        .fa-link {
+          color: #448aff;
+        }
+      }
+    }
   }
   .contact {
     color: black;
   }
-  .col-details {
+  .col-detail {
     h2 {
       margin-top: 10%;
     }
@@ -53,7 +81,193 @@
   #btn-them {
     background-color: #23c53e;
     border: none;
-    width: 50%;
+    width: 70%;
     margin-top: 3%;
+  }
+}
+.row-detail1 {
+  background-color: white;
+  padding: 1px;
+  padding-bottom: 1%;
+  margin-bottom: 3%;
+  h2 {
+    margin-top: 1%;
+  }
+  .row-product-type,
+  .row-producer {
+    width: 90%;
+    margin-left: 1%;
+    .key {
+      background-color: #efefef;
+      font-weight: normal;
+      font-size: 24px;
+      padding: 1%;
+    }
+    .value {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin: 0 auto;
+      padding: 0 auto;
+    }
+  }
+}
+.row-detail2 {
+  background-color: white;
+  padding: 1%;
+  padding-bottom: 1%;
+  margin-bottom: 3%;
+}
+.row-detail3 {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    padding: 1%;
+  }
+  .row {
+    width: 80%;
+
+    .card {
+      max-width: 250px;
+      padding: 2%;
+      margin-top: 10%;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.1) 5px 10px 15px;
+      .cover {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        .discount {
+          text-align: center;
+          font-weight: bold;
+          float: right;
+          width: 20%;
+          background-color: #ff4444;
+          color: white;
+          border: none;
+          border-radius: 7%;
+        }
+      }
+
+      .card-img-top {
+        max-width: 200px;
+        max-height: 200px;
+        align-self: center;
+      }
+      .card-block {
+        text-align: left;
+        .card-title {
+          margin-bottom: 20%;
+        }
+        .card-price {
+          color: red;
+          font-size: $sizePrice;
+          margin: 0;
+        }
+        .card-original-price {
+          font-size: max($sizePrice - 6px);
+          text-decoration: line-through;
+        }
+      }
+    }
+    #btn-them {
+      width: 100%;
+      background-color: #ff4444;
+      border: none;
+    }
+  }
+  .see-more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    a {
+      background-color: #707070;
+      color: white;
+      border: none;
+      width: 10%;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .row-detail {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    .img {
+      width: 300px;
+      height: 300px;
+      .contact {
+        span {
+          font-size: 12px;
+          margin-right: 5%;
+        }
+        a {
+          i {
+            margin-right: 5%;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .col-detail {
+      max-width: 400px;
+    }
+    #btn-them {
+      background-color: #23c53e;
+      border: none;
+      width: 100%;
+      margin-top: 3%;
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+  .row-detail1 {
+    .row-producer,
+    .row-product-type {
+      .key {
+        font-size: 14px;
+      }
+    }
+  }
+  .row-detail3 {
+    .see-more {
+      a {
+        width: 70%;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+  .row-detail {
+    display: flex;
+    width: 100%;
+    margin-bottom: 3%;
+    .col-detail {
+      max-width: 300px;
+    }
+  }
+  .row-detail3 {
+    .row {
+      width: 100%;
+    }
+    .see-more {
+      a {
+        width: 30%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .row-detail3 {
+    .see-more {
+      a {
+        width: 10%;
+      }
+    }
   }
 }
