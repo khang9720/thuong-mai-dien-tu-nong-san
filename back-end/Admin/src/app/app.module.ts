@@ -23,6 +23,10 @@ import { FixProductComponent } from './fix-product/fix-product.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { OrderModule } from 'ngx-order-pipe';
 import {Ng2SearchPipe} from 'ng2-search-filter';
+import { CartComponent } from './cart/cart.component';
+import { DetailCartComponent } from './detail-cart/detail-cart.component';
+import { NgxChartsModule} from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   { path: '', component: LoginAdminComponent },
@@ -33,7 +37,9 @@ const routes: Routes = [
   { path: 'producter',component:ProducterComponent},
   { path: 'staff' ,component:StaffComponent},
   { path: 'account' ,component:AccountStaffComponent},
-  { path: 'fixProduct/:id',component:FixProductComponent}
+  { path: 'fixProduct/:id',component:FixProductComponent},
+  { path: 'cart' ,component:CartComponent},
+  { path: 'detail_cart/:id' ,component:DetailCartComponent}
 ];
 
 @NgModule({
@@ -49,7 +55,9 @@ const routes: Routes = [
     ProducterComponent,
     StaffComponent,
     AccountStaffComponent,
-    FixProductComponent
+    FixProductComponent,
+    CartComponent,
+    DetailCartComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +80,8 @@ const routes: Routes = [
     AngularFirestoreModule,
     GooglePlaceModule,
     OrderModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
   ],
   providers: [Ng2SearchPipe],
   bootstrap: [AppComponent]

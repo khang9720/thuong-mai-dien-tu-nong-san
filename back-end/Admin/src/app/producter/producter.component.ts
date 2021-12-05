@@ -17,6 +17,7 @@ export class ProducterComponent implements OnInit {
     this.getQuantity();
     this.selectedRam1 =0;
   }
+  
   getProducter()
   {
     this.producter.getNSX().subscribe((res:Producter[])=>{
@@ -105,4 +106,9 @@ export class ProducterComponent implements OnInit {
     }
   }
   p:any;
+  dtc:any;
+  phanTram(id:any)
+  {
+    this.dtc = id + '%';
+  }
 }
