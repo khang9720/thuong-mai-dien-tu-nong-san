@@ -2,8 +2,8 @@
   padding-top: 2%;
   .row {
     .col-cart {
-      background-color: white;
       .table {
+        background-color: white;
         tbody {
           tr {
             .img-cart {
@@ -31,5 +31,91 @@
         }
       }
     }
+    .col-info {
+      .info {
+        background-color: white;
+        padding: 4%;
+        border: none;
+        border-radius: 10px;
+
+        .a {
+          text-decoration: none;
+          text-align: right;
+          width: 100%;
+        }
+        .name-phone {
+          margin: 5% 0 5% 0;
+          .name {
+            margin-right: 10%;
+          }
+          .phone {
+            margin-left: 10%;
+          }
+        }
+      }
+      .discount {
+        margin-top: 4%;
+        padding: 4%;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+        .title {
+        }
+      }
+      .sum {
+        margin-top: 4%;
+        padding: 4%;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+
+        table {
+          margin: 0 2%;
+          padding: 10px;
+
+          tr {
+            th,
+            td {
+              padding-bottom: 10px;
+            }
+          }
+          .line {
+            background-color: darkgray;
+
+            margin: 0 auto;
+            padding: 0 auto;
+            height: 2px;
+            border: none;
+            border-radius: 1px;
+          }
+        }
+      }
+      .order {
+        margin-top: 4%;
+        a {
+          background-color: #23c53e;
+          border: none;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cover {
+    .row {
+      .col-cart,
+      .col-info,
+      .col-detail {
+        width: 100%;
+      }
+      .col-cart .table tbody tr td .qty {
+        width: 30px;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+  .cover .row .col-cart .table tbody tr td .qty {
+    width: 30px;
   }
 }

@@ -1,0 +1,133 @@
+<div class="row">
+  <div class="col">
+    Trang chủ
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    Tài khoản
+  </div>
+</div>
+<div class="row">
+  <div class="col-3 col-left">
+    <div class="row row-name">
+      <div class="col-4"><i class="fas fa-user-circle"></i></div>
+      <div class="col-8 name">
+        <h6>Tài khoản của</h6>
+        <h4>Nguyễn Minh Khang</h4>
+      </div>
+    </div>
+    <div class="row menu">
+      <a href="#">
+        <i class="fas fa-user"></i>
+        <span>Thông tin Tài khoản</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-bookmark"></i>
+        <span>Quản lý đơn hàng</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-location-arrow"></i>
+        <span>Số địa chỉ</span>
+      </a>
+    </div>
+  </div>
+  <div class="col-9 col-right">
+    <div class="cover-h3">
+      <h3>Thông tin cá nhân</h3>
+    </div>
+    <div class="info">
+      <div class="row row-info">
+        <div class="dborder col col-name">
+          <h6>Thông tin cá nhân</h6>
+          <form>
+            <div class="form-group row">
+              <label class="col-3 col-form-label col-name">
+                Họ & tên
+              </label>
+              <div class="col-9 col-input-name">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-3 col-form-label col-name">
+                Ngày sinh
+              </label>
+              <div class="col-9 col-input-name">
+                <input type="date" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-3 col-form-label">
+                Giới tính
+              </label>
+              <div class="col-9 col-input-name radio">
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      name="optradio"
+                    />
+                    Nam
+                  </label>
+                </div>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      name="optradio"
+                    />
+                    Nữ
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="btn">
+              <button
+                type="submit"
+                class="btn col btn-primary"
+                id="btn-edit-update"
+              >
+                Cập nhật
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col col-phone-password">
+          <div class="phone">
+            <h6>Số điện thoại</h6>
+            <div class="row">
+              <div class="col-2 icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="col-6 col-phone">
+                <span>Số điện thoại</span>
+                <p>0364772181</p>
+              </div>
+              <div class="col-4 col-btn">
+                <a
+                  routerLink="/phone-update"
+                  class="btn btn-primary"
+                  id="btn-edit-phone"
+                >
+                  Cập nhật
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="password">
+            <h6>Mật khẩu</h6>
+            <div class="row">
+              <div class="col-1 icon"><i class="fas fa-lock"></i></div>
+              <div class="col-7 col-passs">
+                Đặt lại mật khẩu
+              </div>
+              <div class="col-4 col-btn">
+                <a routerLink="#" class="btn btn-primary" id="btn-edit-pass">
+                  cập nhật
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

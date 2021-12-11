@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="step">
+    <nz-steps [nzCurrent]="current">
+      <nz-step nzTitle="Đăng nhập"></nz-step>
+      <nz-step nzTitle="Địa chỉ giao hàng"></nz-step>
+    </nz-steps>
+  </div>
+  <div class="cover-address">
+    <h2><b>2. Địa chỉ giao hàng</b></h2>
+    <h6>Chọn địa chỉ bên dưới:</h6>
+    <div class="address">
+      <h6><b>Nguyễn Minh Khang</b></h6>
+      <h6>
+        Địa chỉ: 201/13/1/31 nguyễn xí, p.26 , Q Bình thạnh, Phường 26, Quận
+        Bình Thạnh, Hồ Chí Minh
+      </h6>
+      <h6>Điện thoại: 0364772181</h6>
+      <a routerLink="#" class="btn btn-primary" id="btn-select">
+        Giao đến địa chỉ này
+      </a>
+      <a routerLink="#" class="btn btn-primary" id="btn-edit-address">
+        Sửa
+      </a>
+    </div>
+    <div class="edit-address">
+      <form>
+        <div class="form-group row">
+          <label class="col-4 col-form-label col-name">
+            Họ và tên
+          </label>
+          <div class="col-8 col-input-name">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label col-name">
+            Số điện thoại
+          </label>
+          <div class="col-8 col-input-name">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label col-name">
+            Tỉnh thành phố
+          </label>
+          <div class="col-8 col-input-name">
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected></option>
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label col-name">
+            Quận/Huyện
+          </label>
+          <div class="col-8 col-input-name">
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected></option>
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label col-name">
+            Phường/Xã
+          </label>
+          <div class="col-8 col-input-name">
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected></option>
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label col-name">
+            Địa chỉ
+          </label>
+          <div class="col-8 col-input-name">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-4 col-form-label col-name"></label>
+          <div class="col-8 col-input-name">
+            <button type="submit" class="btn btn-primary" id="btn-edit-cancel">
+              Hủy bỏ
+            </button>
+            <button type="submit" class="btn btn-primary" id="btn-edit-update">
+              Cập nhật
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

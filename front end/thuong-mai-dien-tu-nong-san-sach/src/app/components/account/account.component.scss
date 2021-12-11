@@ -1,0 +1,185 @@
+.row {
+  .col-left {
+    border: 1px solid darkgray;
+    border-radius: 6px;
+    padding: 15px;
+    .row-name {
+      margin: 0 auto;
+      padding: 5px;
+      i {
+        font-size: 80px;
+        color: white;
+      }
+      .name {
+        margin-top: 10px;
+        padding: 0;
+      }
+    }
+    .menu {
+      margin-top: 8%;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666666;
+        text-decoration: none;
+        margin-bottom: 7%;
+        i {
+          max-width: 25px;
+          font-size: 25px;
+          margin-right: 35px;
+        }
+        span {
+          max-width: 160px;
+          width: 160px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .col-right {
+    .info {
+      width: 100%;
+      border: none;
+      padding: 2%;
+      border-radius: 10px;
+      background-color: white;
+      .dborder {
+        border-right: 1px solid darkgray;
+      }
+      .col-name {
+        h6 {
+          margin-bottom: 4%;
+        }
+        form {
+          margin-left: 4%;
+          .row {
+            .radio {
+              margin-top: 2%;
+            }
+          }
+        }
+        .btn {
+          width: 100%;
+          #btn-edit-update {
+            width: 40%;
+            margin: 0 auto;
+            border: none;
+            background-color: #23c53e;
+          }
+        }
+      }
+      .col-phone-password {
+        .phone {
+          border-bottom: 1px solid darkgray;
+          .row {
+            margin-left: 1%;
+            .icon {
+              display: flex;
+              margin-top: 2%;
+              justify-content: center;
+              padding: 0;
+              i {
+                font-size: 30px;
+                color: #666666;
+              }
+            }
+            .col-phone {
+              span {
+                font-size: 12px;
+              }
+              p {
+                font-size: 16px;
+              }
+            }
+          }
+          #btn-edit-phone {
+            width: 100%;
+            border: 2px solid #23c53e;
+            color: #23c53e;
+            background-color: white;
+            font-size: 13px;
+          }
+        }
+        .password {
+          margin-top: 2%;
+          .row {
+            margin-left: 1%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .icon,
+            .col-pass {
+              font-size: 20px;
+            }
+            .icon {
+              color: #666666;
+            }
+            .col-btn {
+              #btn-edit-pass {
+                width: 100%;
+                font-size: 13px;
+                border: 2px solid #23c53e;
+                color: #23c53e;
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .row {
+    .col-left {
+      padding: 1px;
+      width: 200px;
+      .row-name {
+        i {
+          margin-top: 20px;
+          font-size: 35px;
+        }
+      }
+      .menu {
+        margin-top: 8%;
+        margin-left: 1%;
+        a {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #666666;
+          text-decoration: none;
+          margin-bottom: 7%;
+          i {
+            font-size: 18px;
+            margin-right: 5%;
+          }
+          span {
+            max-width: 160px;
+            width: 160px;
+            font-size: 11px;
+          }
+        }
+      }
+    }
+    .col-right {
+      width: 100%;
+      .info > .row-info {
+        form {
+          max-width: 496px;
+          width: 300px;
+          .col-input-name {
+            width: 350px;
+          }
+        }
+        .dborder {
+          border: none;
+          border-bottom: 1px solid darkgray;
+        }
+      }
+    }
+  }
+}
