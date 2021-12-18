@@ -5,6 +5,7 @@ import { CartComponent } from './components/cart/cart.component'
 import { DetailOrderComponent } from './components/detail-order/detail-order.component'
 import { DetailsProductComponent } from './components/details-product/details-product.component'
 import { EditInfoComponent } from './components/edit-info/edit-info.component'
+import { FollowOrderComponent } from './components/follow-order/follow-order.component'
 import { HomeComponent } from './components/home/home.component'
 import { LoginComponent } from './components/login/login.component'
 import { OrderListComponent } from './components/order-list/order-list.component'
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'password-update', component: PasswordUpdateComponent },
   { path: 'order-list', component: OrderListComponent },
   { path: 'detail-order', component: DetailOrderComponent },
+  { path: 'follow-order', component: FollowOrderComponent },
 ]
 
 @NgModule({

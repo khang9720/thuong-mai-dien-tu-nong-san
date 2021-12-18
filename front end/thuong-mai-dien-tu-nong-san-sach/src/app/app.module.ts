@@ -16,7 +16,8 @@ import { AccountComponent } from './components/account/account.component';
 import { PhoneUpdateComponent } from './components/phone-update/phone-update.component';
 import { PasswordUpdateComponent } from './components/password-update/password-update.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
-import { DetailOrderComponent } from './components/detail-order/detail-order.component'
+import { DetailOrderComponent } from './components/detail-order/detail-order.component';
+import { FollowOrderComponent } from './components/follow-order/follow-order.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DetailOrderComponent } from './components/detail-order/detail-order.com
     PasswordUpdateComponent,
     OrderListComponent,
     DetailOrderComponent,
+    FollowOrderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NzButtonModule, NzStepsModule],
   providers: [],

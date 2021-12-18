@@ -35,23 +35,24 @@
     </div>
     <div class="cover">
       <div class="row row1">
-        <div class="col address">
-          <h5>ĐỊA CHỈ NGƯỜI NHẬN</h5>
-          <div class="address-detail">
-            <p><b>NGUYỄN MINH KHANG</b></p>
-            <p>
-              Địa chỉ: 201/13/1/31 nguyễn xí, p.26 , Q Bình thạnh, Phường 26,
-              Quận Bình Thạnh, Hồ Chí Minh, Việt Nam
-            </p>
-            <span>Điện thoại: 0364772181</span>
+        <div class="status">
+          <h5>TRẠNG THÁI ĐƠN HÀNG</h5>
+          <div class="detail">
+            Trạng thái:
+            <b>giao hàng thành công | thứ 7, 18/12/2021</b>
+            <div class="step">
+              <nz-steps [nzCurrent]="3" nzProgressDot>
+                <nz-step nzTitle="Đặt hàng thành công"></nz-step>
+                <nz-step nzTitle="Đang lấy hàng"></nz-step>
+                <nz-step nzTitle="Bàn giao vận chuyển"></nz-step>
+                <nz-step nzTitle="Giao hàng thành công"></nz-step>
+              </nz-steps>
+            </div>
           </div>
-        </div>
-        <div class="col payment">
-          <h5>HÌNH THỨC THANH TOÁN</h5>
-          <div class="payment-detail"><p>Thanh toán khi nhận hàng</p></div>
         </div>
       </div>
       <div class="row list-product">
+        <h5>KIỆN HÀNG GÒM CÓ</h5>
         <table class="table">
           <thead>
             <tr>
@@ -87,15 +88,6 @@
             </tr>
           </tbody>
         </table>
-        <div class="btn">
-          <a
-            routerLink="/follow-order"
-            class="btn col btn-primary"
-            id="btn-edit-update"
-          >
-            Theo dõi đơn hàng
-          </a>
-        </div>
       </div>
     </div>
   </div>
