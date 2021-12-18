@@ -13,7 +13,10 @@ import { HomeComponent } from './components/home/home.component'
 import { LoginComponent } from './components/login/login.component'
 import { RegisterComponent } from './components/register/register.component';
 import { AccountComponent } from './components/account/account.component';
-import { PhoneUpdateComponent } from './components/phone-update/phone-update.component'
+import { PhoneUpdateComponent } from './components/phone-update/phone-update.component';
+import { PasswordUpdateComponent } from './components/password-update/password-update.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { DetailOrderComponent } from './components/detail-order/detail-order.component'
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { PhoneUpdateComponent } from './components/phone-update/phone-update.com
     EditInfoComponent,
     AccountComponent,
     PhoneUpdateComponent,
+    PasswordUpdateComponent,
+    OrderListComponent,
+    DetailOrderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NzButtonModule, NzStepsModule],
   providers: [],

@@ -15,15 +15,15 @@
       </div>
     </div>
     <div class="row menu">
-      <a href="#">
+      <a routerLink="/account">
         <i class="fas fa-user"></i>
         <span>Thông tin Tài khoản</span>
       </a>
-      <a href="#">
+      <a routerLink="/order-list">
         <i class="fas fa-bookmark"></i>
         <span>Quản lý đơn hàng</span>
       </a>
-      <a href="#">
+      <a routerLink="/edit-info">
         <i class="fas fa-location-arrow"></i>
         <span>Số địa chỉ</span>
       </a>
@@ -120,7 +120,11 @@
                 Đặt lại mật khẩu
               </div>
               <div class="col-4 col-btn">
-                <a routerLink="#" class="btn btn-primary" id="btn-edit-pass">
+                <a
+                  routerLink="/password-update"
+                  class="btn btn-primary"
+                  id="btn-edit-pass"
+                >
                   cập nhật
                 </a>
               </div>
