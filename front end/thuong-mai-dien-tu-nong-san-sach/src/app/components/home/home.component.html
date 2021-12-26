@@ -5,12 +5,7 @@
   <div class="col-3 category">
     <h4>DANH MỤC SẢN PHẨM</h4>
     <br />
-    <a href="#">Rau củ quả</a>
-    <a href="#">Rau củ quả</a>
-    <a href="#">Rau củ quả</a>
-    <a href="#">Rau củ quả</a>
-    <a href="#">Rau củ quả</a>
-    <a href="#">Rau củ quả</a>
+    <a href="#" *ngFor="let item of products">{{ item.Ten_LSP }}</a>
   </div>
   <div class="col-9">
     <div class="cover-h3">
@@ -18,182 +13,43 @@
     </div>
 
     <div class="row">
-      <div class="col">
+      <div class="col" *ngFor="let item of products">
         <div class="card" style="width: 20rem;">
           <div class="cover">
-            <p class="discount">-40%</p>
+            <p class="discount">-{{ item.Giam_Gia }}%</p>
           </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
+          <div class="img">
+            <img
+              class="card-img-top"
+              src="https://firebasestorage.googleapis.com/v0/b/test-img-fa3b9.appspot.com/o{{
+                item.Hinh
+              }}?alt=media&token=11d84b6e-ba6e-46b1-944c-8f1138dc415c"
+              alt="Card image cap"
+            />
+          </div>
           <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
+            <h4 class="card-title">{{ item.Ten_SP }}</h4>
+            <p class="card-price">
+              {{
+                item.Thanh_Tien.toLocaleString('vi', {
+                  style: 'currency',
+                  currency: 'VND'
+                })
+              }}
+            </p>
+            <p class="card-original-price">
+              {{
+                item.Don_Gia.toLocaleString('vi', {
+                  style: 'currency',
+                  currency: 'VND'
+                })
+              }}
+            </p>
             <a routerLink="details" class="btn btn-primary" id="btn-them">
               Thêm
             </a>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 20rem;">
-          <div class="cover">
-            <p class="discount">-40%</p>
-          </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
-            <a href="#" class="btn btn-primary" id="btn-them">
-              Thêm
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 20rem;">
-          <div class="cover">
-            <p class="discount">-40%</p>
-          </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
-            <a href="#" class="btn btn-primary" id="btn-them">
-              Thêm
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 20rem;">
-          <div class="cover">
-            <p class="discount">-40%</p>
-          </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
-            <a href="#" class="btn btn-primary" id="btn-them">
-              Thêm
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 20rem;">
-          <div class="cover">
-            <p class="discount">-40%</p>
-          </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
-            <a href="#" class="btn btn-primary" id="btn-them">
-              Thêm
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 20rem;">
-          <div class="cover">
-            <p class="discount">-40%</p>
-          </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
-            <a href="#" class="btn btn-primary" id="btn-them">
-              Thêm
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 20rem;">
-          <div class="cover">
-            <p class="discount">-40%</p>
-          </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
-            <a href="#" class="btn btn-primary" id="btn-them">
-              Thêm
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 20rem;">
-          <div class="cover">
-            <p class="discount">-40%</p>
-          </div>
-
-          <img
-            class="card-img-top"
-            src="http://www.azspagirls.com/files/2010/09/orange.jpg"
-            alt="Card image cap"
-          />
-          <div class="card-block">
-            <h4 class="card-title">Orange</h4>
-            <p class="card-price">40,000đ</p>
-            <p class="card-original-price">70,000đ</p>
-            <a href="#" class="btn btn-primary" id="btn-them">
-              Thêm
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <h3>danh muc san pham</h3>
-      <div class="row">
-        <div class="col">san pham 1</div>
-        <div class="col">san pham 2</div>
-        <div class="col">san pham 3</div>
-        <div class="col">san pham 4</div>
-        <div class="col">san pham 5</div>
       </div>
     </div>
   </div>

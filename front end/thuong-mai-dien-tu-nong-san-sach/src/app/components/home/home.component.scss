@@ -35,12 +35,18 @@ $sizePrice: 20px;
         border-radius: 7%;
       }
     }
-
-    .card-img-top {
-      max-width: 200px;
-      max-height: 200px;
+    .img {
       align-self: center;
+      min-height: 200px;
+      .card-img-top {
+        border: none;
+        border-radius: 5px;
+        max-width: 200px;
+        max-height: 200px;
+        align-self: center;
+      }
     }
+
     .card-block {
       text-align: left;
       .card-title {
