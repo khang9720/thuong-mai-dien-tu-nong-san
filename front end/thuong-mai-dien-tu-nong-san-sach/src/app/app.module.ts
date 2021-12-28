@@ -1,8 +1,11 @@
 import { HttpClientModule } from '@angular/common/http'
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NzButtonModule } from 'ng-zorro-antd/button'
 import { NzStepsModule } from 'ng-zorro-antd/steps'
+import { ToastrModule } from 'ngx-toastr'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { AccountComponent } from './components/account/account.component'
@@ -44,8 +47,14 @@ import { RegisterComponent } from './components/register/register.component'
     NzButtonModule,
     NzStepsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+    }),
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

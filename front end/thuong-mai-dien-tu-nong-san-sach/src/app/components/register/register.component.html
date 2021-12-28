@@ -1,52 +1,113 @@
 <div class="wrapper">
   <div class="row">
     <div class="form-signin col-8">
-      <form action="">
+      <form action="" #passwordValidation="ngForm">
         <h2 class="form-signin-heading">Đăng ký tài khoản</h2>
-        <input
-          type="text "
-          name="name"
-          placeholder="Nhập họ và tên"
-          required=""
-          autofocus
-        />
-        <input
-          type="date"
-          name="birthday"
-          required=""
-          autofocus
-          placeholder="Ngày sinh"
-        />
-        <input
-          type="text"
-          name="phonenumber"
-          placeholder="Nhập số điện thoại"
-          required=""
-          autofocus=""
-        />
-        <div class="input-group">
+        <div>
           <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Nhập mật khẩu"
+            type="text"
+            id="phonenumber"
+            name="phonenumber"
+            placeholder="Nhập số điện thoại"
+            autofocus=""
+            [(ngModel)]="registerArray.phone"
+            #phone="ngModel"
+            [pattern]="phonePtn"
+            required
           />
-          <span>
-            <i id="toggler" class="far fa-eye"></i>
-          </span>
+          <section
+            class="alert alert-danger"
+            *ngIf="
+              (phone.touched || passwordValidation.submitted) &&
+              phone.errors?.required
+            "
+          >
+            Số điện thoại không được trống!
+          </section>
+          <section
+            class="alert alert-danger"
+            *ngIf="
+              (phone.touched || passwordValidation.submitted) &&
+              phone.errors?.pattern
+            "
+          >
+            Số điện thoại phải dài từ 8 đến 12 số và bắt đầu bằng số 0
+          </section>
+          <div class="input-group">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Nhập mật khẩu"
+              [(ngModel)]="registerArray.password"
+              #Password="ngModel"
+              minlength="8"
+              maxlength="32"
+              [pattern]="passwordPtn"
+              required
+            />
+            <span>
+              <i id="toggler" class="far fa-eye"></i>
+            </span>
+          </div>
+          <section
+            class="alert alert-danger"
+            *ngIf="
+              (Password.touched || passwordValidation.submitted) &&
+              Password.errors?.required
+            "
+          >
+            Mật khẩu không được để trống
+          </section>
+          <section
+            class="alert alert-danger"
+            *ngIf="
+              (Password.touched || passwordValidation.submitted) &&
+              Password.errors?.pattern
+            "
+          >
+            Mật khẩu phải dài từ 8 đến 12 ký tự, bao gồm chữ, số, chữ viết hoa
+            và ký tự đặt biệt
+          </section>
+          <div class="input-group">
+            <input
+              type="password"
+              name="retype"
+              id="retype"
+              placeholder="Nhập lại mật khẩu"
+              [(ngModel)]="registerArray.confirmPassword"
+              #confirmPassword="ngModel"
+              minlength="8"
+              maxlength="32"
+              required
+            />
+            <span>
+              <i id="retypeToggler" class="far fa-eye"></i>
+            </span>
+          </div>
+          <section
+            class="alert alert-danger"
+            *ngIf="
+              (confirmPassword.touched || passwordValidation.submitted) &&
+              confirmPassword.errors?.required
+            "
+          >
+            Mật khẩu không được để trống
+          </section>
+          <section
+            class="alert alert-danger"
+            *ngIf="
+              (confirmPassword.touched || passwordValidation.submitted) &&
+              registerArray.password !== registerArray.confirmPassword
+            "
+          >
+            Mật khẩu không trùng khớp
+          </section>
         </div>
-        <div class="input-group">
-          <input
-            type="password"
-            name="retype"
-            id="retype"
-            placeholder="Nhập lại mật khẩu"
-          />
-          <span>
-            <i id="retypeToggler" class="far fa-eye"></i>
-          </span>
-        </div>
-        <button class="btn btn-lg" type="submit">Đăng ký</button>
+
+        <button class="btn btn-lg" (click)="save()" type="submit">
+          Đăng ký
+        </button>
       </form>
     </div>
     <div class="bglogin col-4">

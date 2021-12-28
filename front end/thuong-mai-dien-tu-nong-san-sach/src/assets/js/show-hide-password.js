@@ -35,9 +35,10 @@ function showHidePassword() {
       retype.setAttribute('type', 'password')
     }
   }
-  toggler.addEventListener('click', showHidePassword)
+
   try {
+    toggler.addEventListener('click', showHidePassword)
     newToggler.addEventListener('click', showHidePasswordNew)
+    retypeToggler.addEventListener('click', showHidePasswordRetype)
   } catch (error) {}
-  retypeToggler.addEventListener('click', showHidePasswordRetype)
 }
