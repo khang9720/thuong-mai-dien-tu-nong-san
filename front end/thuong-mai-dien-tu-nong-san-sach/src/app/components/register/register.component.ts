@@ -42,7 +42,11 @@ export class RegisterComponent implements OnInit {
       (data) => {
         this.submitRegister = true
         this.messenger = data
-        this.showSuccess(this.messenger.message)
+        if (this.messenger.status == true)
+          this.showSuccess(this.messenger.message, true)
+        else {
+          this.showSuccess(this.messenger.message, false)
+        }
         console.log(data)
       },
       (error) => {
@@ -50,7 +54,11 @@ export class RegisterComponent implements OnInit {
       },
     )
   }
-  showSuccess(messenger: any) {
-    this.toastr.warning(messenger, 'Thông báo', { timeOut: 3000 })
+  showSuccess(messenger: any, status: any) {
+    if (status == true) {
+      this.toastr.success(messenger, 'Thông báo', { timeOut: 3000 })
+    } else {
+      this.toastr.warning(messenger, 'Thông báo', { timeOut: 3000 })
+    }
   }
 }

@@ -11,7 +11,7 @@
       <div class="col-4"><i class="fas fa-user-circle"></i></div>
       <div class="col-8 name">
         <h6>Tài khoản của</h6>
-        <h4>Nguyễn Minh Khang</h4>
+        <h4>{{ this.phone }}</h4>
       </div>
     </div>
     <div class="row menu">
@@ -37,13 +37,25 @@
       <div class="row row-info">
         <div class="dborder col col-name">
           <h6>Thông tin cá nhân</h6>
-          <form>
+          <form #infoValidation="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group row">
               <label class="col-3 col-form-label col-name">
                 Họ & tên
               </label>
               <div class="col-9 col-input-name">
-                <input type="text" class="form-control" />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="first"
+                  id="first"
+                  [(ngModel)]="infoArray.firstname"
+                  #firstname="ngModel"
+                  [pattern]="fullNamePtn"
+                  minlength="10"
+                  maxlength="20"
+                  required
+                  autofocus=""
+                />
               </div>
             </div>
             <div class="form-group row">
@@ -51,7 +63,13 @@
                 Ngày sinh
               </label>
               <div class="col-9 col-input-name">
-                <input type="date" class="form-control" />
+                <input
+                  type="date"
+                  [ngModel]="infoArray.firstName | date: 'shortDate'"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="form-control"
+                  required
+                />
               </div>
             </div>
             <div class="form-group row">
@@ -65,6 +83,10 @@
                       type="radio"
                       class="form-check-input"
                       name="optradio"
+                      [(ngModel)]="infoArray.sex"
+                      #sex="ngModel"
+                      [checked]="true"
+                      required
                     />
                     Nam
                   </label>
@@ -74,7 +96,10 @@
                     <input
                       type="radio"
                       class="form-check-input"
+                      [(ngModel)]="infoArray.sex"
+                      #sex="ngModel"
                       name="optradio"
+                      [value]="0"
                     />
                     Nữ
                   </label>

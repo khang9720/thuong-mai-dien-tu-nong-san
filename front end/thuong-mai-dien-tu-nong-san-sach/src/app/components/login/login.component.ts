@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormGroup } from '@angular/forms'
+import { ToastrService } from 'ngx-toastr'
 import { AuthService } from 'src/app/_services/auth.service'
 import { TokenStorageService } from 'src/app/_services/token-storage.service'
+import { Md5 } from 'ts-md5'
 
 declare const showHidePassword: any
 @Component({
@@ -13,10 +15,10 @@ export class LoginComponent implements OnInit {
   regArr: any = {}
 
   constructor(
-    private fb: FormBuilder,
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private tokenStorageService: TokenStorageService,
+    private toastr: ToastrService,
   ) {}
   reactiveForm!: FormGroup
 
@@ -36,16 +38,24 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const phone = this.loginArray.phone
     const password = this.loginArray.password
-    console.log(phone, password)
+    console.log(Md5.hashStr(password))
 
-    this.authService.login(phone, password).subscribe(
+    this.authService.login(phone, Md5.hashStr(password)).subscribe(
       (data) => {
-        this.tokenStorage.saveToken(data.accessToken)
-        this.tokenStorage.saveUser(data)
-        this.isLoginFailed = false
-        this.isLoggedIn = true
+        let status = data
+        if (status.Status == 3) {
+          this.tokenStorage.saveToken(data.accessToken)
+          this.tokenStorage.saveUser(data)
+          this.isLoginFailed = false
+          this.isLoggedIn = true
+          this.reLoad()
+        } else if (status.Status == 2) {
+          this.isLoggedIn = false
+          let messenger = status.Mess
+          this.showSuccess(messenger, false)
+        }
+        console.log(this.isLoggedIn)
         console.log(data)
-        this.reLoad()
       },
       (err) => {
         this.errorMessage = err.error.message
@@ -53,9 +63,7 @@ export class LoginComponent implements OnInit {
       },
     )
   }
-  pwdSubmit() {
-    alert(this.loginArray)
-  }
+
   checklogin(): void {
     if (this.tokenStorage.getToken() != null) {
       this.tkLogin = true
@@ -69,5 +77,12 @@ export class LoginComponent implements OnInit {
   logout(): void {
     this.tokenStorageService.signOut()
     window.location.reload()
+  }
+  showSuccess(messenger: any, status: any) {
+    if (status == true) {
+      this.toastr.success(messenger, 'Thông báo', { timeOut: 3000 })
+    } else {
+      this.toastr.warning(messenger, 'Thông báo', { timeOut: 3000 })
+    }
   }
 }
