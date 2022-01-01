@@ -8,12 +8,13 @@ import { ShowService } from '../Controler/Cart/Show/show.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  name:any;
   constructor(private Cr:ShowService,private cdr: ChangeDetectorRef) { }
   p:any;
   cart!:Cart[];
   ngOnInit(): void {
     this.showAllCart();
+    this.name = localStorage.getItem('accc');
   }
 
   showAllCart()
@@ -47,9 +48,12 @@ export class CartComponent implements OnInit {
   cancelOrder(id:any)
   {
     console.log(id);
-    this.Cr.cancelID(id).subscribe((res:any)=>{
+    this.Cr.cancelID(id,this.name).subscribe((res:any)=>{
       alert(res.message);
-      this.ngOnInit();
+      if(res.status == true)
+        {
+          window.location.reload();
+        }
     });
   }
 
@@ -60,9 +64,29 @@ export class CartComponent implements OnInit {
 
   upShipp(id:any)
   {
-    this.Cr.UpShip(id).subscribe((res:any)=>{
+    this.Cr.UpShip(id,this.name).subscribe((res:any)=>{
       alert(res.message);
-      this.ngOnInit();
+      if(res.status == true)
+        {
+          window.location.reload();
+        }
     })
   }
+
+  NV:any;
+ SearchNC(){
+  this.cart = this.cart.filter(res =>{
+    return res.Ma_DH.toLocaleLowerCase().match(this.NV.toLocaleLowerCase());
+    
+  });
+
+  }
+  emtySearch()
+  {
+    if(this.NV == "")
+    {
+      this.ngOnInit();
+    }
+  }
+  
 }

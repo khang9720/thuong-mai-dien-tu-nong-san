@@ -3,7 +3,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<section style="height: 100vh;" class="body"    >
+<section style="height: 100vh;" class="body">
   
     <div style="background-image: url(images/arka.jpg); background-attachment: fixed; background-size: cover; width: 100%; height: 100vh; position: relative;"  >
     <div class="baslik">
@@ -18,6 +18,12 @@
             <input formControlName="account" class="giris" type="text" name="kadi" placeholder="User">
             <input formControlName="password" class="giris" type="password" name="sifre" placeholder="•••••">
             <a (click)="onSubmitLogin()" target="blank"><input class="butonlogin" type="submit" name="" value="Đăng nhập"></a>
+            <div class="form-group" style="margin-top: 20px;">
+                <select  formControlName="test">
+                  <option value="1">Nhân viên</option>
+                  <option value="0">Admin</option>
+                </select>
+              </div>
         </div>
     </form>
     </section><br>

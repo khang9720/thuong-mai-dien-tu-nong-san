@@ -27,6 +27,10 @@ import { CartComponent } from './cart/cart.component';
 import { DetailCartComponent } from './detail-cart/detail-cart.component';
 import { NgxChartsModule} from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { NgChartsModule } from 'ng2-charts';
+import { ShowAccComponent } from './show-acc/show-acc.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginAdminComponent },
@@ -39,7 +43,8 @@ const routes: Routes = [
   { path: 'account' ,component:AccountStaffComponent},
   { path: 'fixProduct/:id',component:FixProductComponent},
   { path: 'cart' ,component:CartComponent},
-  { path: 'detail_cart/:id' ,component:DetailCartComponent}
+  { path: 'detail_cart/:id' ,component:DetailCartComponent},
+  { path: 'notice', component:ShowAccComponent}
 ];
 
 @NgModule({
@@ -57,10 +62,12 @@ const routes: Routes = [
     AccountStaffComponent,
     FixProductComponent,
     CartComponent,
-    DetailCartComponent
+    DetailCartComponent,
+    ShowAccComponent
   ],
   imports: [
     BrowserModule,
+    NgApexchartsModule,
     NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
@@ -82,6 +89,7 @@ const routes: Routes = [
     OrderModule,
     NgxChartsModule,
     BrowserAnimationsModule,
+    NgChartsModule,
   ],
   providers: [Ng2SearchPipe],
   bootstrap: [AppComponent]

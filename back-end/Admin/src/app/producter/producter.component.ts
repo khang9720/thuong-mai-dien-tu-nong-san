@@ -3,6 +3,7 @@ import { ThemSpService} from '../Controler/Product/Add/them-sp.service';
 import {  Producter } from '../../Model/producter.model';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProducterService} from '../Controler/Product/Add/Producter/producter.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-producter',
   templateUrl: './producter.component.html',
@@ -10,12 +11,14 @@ import { ProducterService} from '../Controler/Product/Add/Producter/producter.se
 })
 export class ProducterComponent implements OnInit {
   
-  constructor(private producter:ThemSpService,private add_producter:ProducterService,private fromBD:FormBuilder) { this.intFrom();this.initFromData();}
+  constructor(private producter:ThemSpService,private add_producter:ProducterService,private fromBD:FormBuilder,private rt:Router) { this.intFrom();this.initFromData();}
   producterr!:Producter[];
+  name:any;
   ngOnInit(): void {
     this.getProducter();
     this.getQuantity();
     this.selectedRam1 =0;
+    this.name = localStorage.getItem('accc');
   }
   
   getProducter()
@@ -45,9 +48,10 @@ export class ProducterComponent implements OnInit {
   onSubmit()
   {
     //console.log(this.fromProducter.value)
-    this.add_producter.addProducter(this.fromProducter.value,this.selectedRam1).subscribe((res:any)=>{
+    this.add_producter.addProducter(this.fromProducter.value,this.selectedRam1,this.name).subscribe((res:any)=>{
       this.data = res;
       alert(this.data.message);
+      window.location.reload();
     });
   }
   selectedRam :any;
@@ -86,9 +90,11 @@ export class ProducterComponent implements OnInit {
   submitFixData()
   {
 
-    this.add_producter.fixData(this.fromProducter2.value,this.Ma,this.selectedRam).subscribe((res:any)=>{
+    this.add_producter.fixData(this.fromProducter2.value,this.Ma,this.selectedRam,this.name).subscribe((res:any)=>{
       alert(res.message);
       this.getProducter();
+      this.ngOnInit();
+      window.location.reload();
     })
   }
   resss:boolean =true;
@@ -111,4 +117,6 @@ export class ProducterComponent implements OnInit {
   {
     this.dtc = id + '%';
   }
+
+  
 }

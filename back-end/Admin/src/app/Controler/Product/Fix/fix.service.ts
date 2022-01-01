@@ -11,7 +11,7 @@ export class FixService {
   constructor(private http:HttpClient) { }
 
   fixURL = liink.bsaeURL + 'Fix_Product.php';
-  fixProduct(FixData:any,img:any,masp:any)
+  fixProduct(FixData:any,img:any,masp:any,accc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append('Ma_SP',masp);
@@ -23,6 +23,7 @@ export class FixService {
     payLoad = payLoad.append('Ma_LSP',FixData.Ma_LSP);
     payLoad = payLoad.append('Giam_Gia',FixData.Giam_Gia);
     payLoad = payLoad.append('Kich_Hoat',FixData.Kich_Hoat);
+    payLoad = payLoad.append("Account",accc);
     return this.http.post(this.fixURL,payLoad);
   }
 
@@ -33,11 +34,12 @@ export class FixService {
   }
 
   checkData = liink.bsaeURL + 'Check_Product.php';
-  Check_Data(KichHoat:any,Ma_SP:any)
+  Check_Data(KichHoat:any,Ma_SP:any,acc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append('KichHoat',KichHoat);
     payLoad = payLoad.append('Ma_SP',Ma_SP);
+    payLoad = payLoad.append('Account',acc);
     return this.http.post(this.checkData,payLoad);
   }
 }

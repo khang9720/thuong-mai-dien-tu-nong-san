@@ -14,7 +14,7 @@ export class ThemSpService {
 
   addURL = liink.bsaeURL + 'Add_Products.php';
 
-  add(ProductData:any,link:any)
+  add(ProductData:any,link:any,accc:any)
   {
     let payload = new HttpParams();
     payload = payload.append("Ma_SP",ProductData.Ma_SP);
@@ -26,6 +26,7 @@ export class ThemSpService {
     payload = payload.append("Ma_LSP",ProductData.Ma_LSP);
     payload = payload.append("Giam_Gia",ProductData.Giam_Gia);
     payload = payload.append("Kich_Hoat",ProductData.Kich_Hoat)
+    payload = payload.append("Account",accc)
     return this.http.post(this.addURL,payload);
   }
   //////////////////////////////////////////////////////////////////////////////

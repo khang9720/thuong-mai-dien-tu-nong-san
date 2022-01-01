@@ -35,4 +35,9 @@ export class ShowStaffService {
   {
     return this.http.get<Account[]>(this.AccountURF).pipe();
   }
+  AccountAcessURF = liink.bsaeURL + 'Show_Staff_Acess.php?Acess=';
+  showAccountAcess(id:any)
+  {
+    return this.http.get<Account[]>(this.AccountAcessURF + id).pipe();
+  }
 }

@@ -19,10 +19,12 @@ export class ProductComponent implements OnInit {
   sanpham!: Product[];
   isLoading = false;
   SP:any;
+  name:any;
   ngOnInit(): void {
     this.getAllPro();
     this.getType();
     this.getProducter();
+    this.name = localStorage.getItem('accc');
   }
   SearchNC(){
     
@@ -113,9 +115,10 @@ export class ProductComponent implements OnInit {
     //console.log(this.fromProduct.value);
     this.link = ("/files" + this.myDate);
     this.ff.upload(this.link,this.path);
-    this.add.add(this.fromProduct.value,this.link).subscribe(res=>{
+    this.add.add(this.fromProduct.value,this.link,this.name).subscribe(res=>{
       console.log("Thành công",JSON.stringify(res));
       alert("Thành công");
+      window.location.reload();
     },(err)=>{
       console.log(err);
     });
@@ -124,7 +127,6 @@ export class ProductComponent implements OnInit {
   }
   //Up load img to firebase
   path:any;
-  name:any;
   upload($event:any){
     this.path = $event.target.files[0];
     //this.name = $event.target.files[0].name;
@@ -136,14 +138,16 @@ export class ProductComponent implements OnInit {
   {
     if(KH == 0)
     {
-      this.fix.Check_Data(1,MSP).subscribe((res:any)=>{
-        alert(res.message)
+      this.fix.Check_Data(1,MSP,this.name).subscribe((res:any)=>{
+        alert(res.message);
+        window.location.reload();
       })
     }
     else
     {
-      this.fix.Check_Data(0,MSP).subscribe((res:any)=>{
-        alert("Thành công vô hiệu hóa")
+      this.fix.Check_Data(0,MSP,this.name).subscribe((res:any)=>{
+        alert("Thành công vô hiệu hóa");
+        window.location.reload();
       })
     }
   }

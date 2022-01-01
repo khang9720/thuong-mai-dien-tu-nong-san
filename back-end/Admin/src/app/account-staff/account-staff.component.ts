@@ -10,9 +10,10 @@ import { AddStaffService } from '../Controler/Staff/Add/add-staff.service'
 export class AccountStaffComponent implements OnInit {
 
   constructor(private stff:ShowStaffService,private add:AddStaffService) { }
-
+  name:any;
   ngOnInit(): void {
     this.ShowStaff();
+    this.name = localStorage.getItem('accc');
   }
   staff!:Account[];
   ShowStaff()
@@ -41,18 +42,24 @@ export class AccountStaffComponent implements OnInit {
     if(a == 1)
     {
       this.Acces = "Vô hiệu hóa tài khoản";
-      this.add.Status_Account('0',MA).subscribe((res:any)=>{
+      this.add.Status_Account('0',MA,this.name).subscribe((res:any)=>{
         alert(res.message);
-        this.ShowStaff();
+        if(res.status == true)
+        {
+          window.location.reload();
+        }
       })
       
     }
     else
     {
       this.Acces = "Kích hoạt tài khoản";
-      this.add.Status_Account('1',MA).subscribe((res:any)=>{
+      this.add.Status_Account('1',MA,this.name).subscribe((res:any)=>{
         alert(res.message);
-        this.ShowStaff();
+        if(res.status == true)
+        {
+          window.location.reload();
+        }
       })
       
     }
@@ -87,5 +94,11 @@ export class AccountStaffComponent implements OnInit {
     {
       this.ngOnInit();
     }
+  }
+  ShowStaffACC(id:any)
+  {
+    this.stff.showAccountAcess(id).subscribe((res:Account[])=>{
+      this.staff = res;
+    });
   }
 }

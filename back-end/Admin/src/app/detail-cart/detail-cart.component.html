@@ -75,7 +75,7 @@
                                 <td>
                                     <div class="price-wrap"> <var class="price">{{item.Thanh_Tien | currency:'VND'}}</var> </div>
                                 </td>
-                                <td class="text-right d-none d-md-block"> <a href="" class="btn btn-light" data-abc="true" data-toggle="modal" data-target="#exampleModal" [hidden]="this.showw ==1">{{filter(Status,Ship)}} Sửa</a><a  data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-light btn-round" data-abc="true" [hidden]="this.showw ==1" (click)="getIDCard(item.Ma_SP)"> Remove</a> </td>
+                                <td class="text-right d-none d-md-block"> {{filter(Status,Ship)}}<a  data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-light btn-round" data-abc="true" [hidden]="this.showw ==0" (click)="getIDCard(item.Ma_SP)" style="color: white;"> Remove</a> </td>
                             </tr>
                            
                             

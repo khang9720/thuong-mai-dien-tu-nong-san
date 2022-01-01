@@ -12,8 +12,10 @@ export class TypeproductComponent implements OnInit {
 
   constructor(private typpe:ThemSpService,private fromBD:FormBuilder,private tyype:TypeService) {this.innitFromProducts();this.innitFromFixType() }
   type!:Type[];
+  names:any;
   ngOnInit(): void {
     this.getType();
+    this.names = localStorage.getItem('accc');
   }
   //Call API type
   getType()
@@ -36,9 +38,13 @@ export class TypeproductComponent implements OnInit {
   dataType:any;
   onSubmit()
   {
-     this.tyype.addType(this.fromProduct.value).subscribe((res:any)=>{
+     this.tyype.addType(this.fromProduct.value,this.names).subscribe((res:any)=>{
       this.dataType = res;
-      alert(this.dataType.message);
+      alert(res.message);
+      if(res.status == true)
+        {
+          window.location.reload();
+        }
      }) 
   }
 
@@ -65,7 +71,7 @@ export class TypeproductComponent implements OnInit {
   onSubmitFix()
   {
     console.log(this.fromProduct2.value);
-    this.tyype.fixData(this.fromProduct2.value,this.Ma).subscribe((res:any)=>{
+    this.tyype.fixData(this.fromProduct2.value,this.Ma,this.names).subscribe((res:any)=>{
       alert(res.message);
       this.getType();
     })

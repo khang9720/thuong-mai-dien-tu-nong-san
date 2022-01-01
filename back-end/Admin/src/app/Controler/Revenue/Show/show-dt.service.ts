@@ -3,6 +3,7 @@ import {liink} from '../../../../Link/link';
 import {HttpClient,HttpParams} from '@angular/common/http';
 import {Revenue} from '../../../../Model/revenue.model'
 import {Visualization_Revenue} from '../../../../Model/revenue_visualization.model'
+import {Revenues} from '../../../../Model/revenue.models'
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,17 @@ export class ShowDtService {
   getRevenueV()
   {
     return this.http.get<Visualization_Revenue>(this.getRevenueVURL).pipe();
+  }
+
+  getRevenueDsURL = liink.bsaeURL + 'Revenue_Days.php?1=';
+  getRevenueDs(id:any)
+  {
+    return this.http.get<any[]>(this.getRevenueDsURL + id).pipe();
+  }
+
+  getRevenueCartURL = liink.bsaeURL + 'Revenue_Carts.php';
+  getRevenueCs()
+  {
+    return this.http.get<any[]>(this.getRevenueCartURL).pipe();
   }
 }

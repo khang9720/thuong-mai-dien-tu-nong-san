@@ -13,10 +13,10 @@ import { Router } from '@angular/router';
 export class StaffComponent implements OnInit {
 
   constructor(private stff:ShowStaffService,private add_stf :AddStaffService,private fromBD:FormBuilder,private rt:Router) { this.initFromStaff();this.initFrom(); }
-
+  names:any;
   ngOnInit(): void {
     this.ShowStaff();
-    
+    this.names = localStorage.getItem('accc');
   }
   //Show data staff
   staff!:Staff[];
@@ -62,12 +62,11 @@ export class StaffComponent implements OnInit {
     }
     else
     {
-      this.add_stf.addStaff(this.staffData.value).subscribe((res:any)=>{
+      this.add_stf.addStaff(this.staffData.value,this.names).subscribe((res:any)=>{
         alert(res.message);
         if(res.status == true)
         {
-          this.ShowStaff();
-          
+          window.location.reload();
         }
       });
     }
@@ -142,8 +141,12 @@ export class StaffComponent implements OnInit {
   {
     console.log(this.fromProduct2.value);
     console.log(this.code);
-    this.add_stf.Fix_Data_Staff(this.fromProduct2.value,this.code).subscribe((res:any)=>{
+    this.add_stf.Fix_Data_Staff(this.fromProduct2.value,this.code,this.names).subscribe((res:any)=>{
       alert(res.message);
+      if(res.status == true)
+        {
+          window.location.reload();
+        }
     })
   }
 

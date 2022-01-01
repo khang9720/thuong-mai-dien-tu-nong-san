@@ -19,4 +19,16 @@ export class LoginService {
     payload = payload.append("password",login.password);
     return this.http.post(this.loginURL,payload);
   }
+
+
+  loginStaffURL = liink.bsaeURL + "Login_Staff.php";
+
+  //Tạo service cho đăng nhập Admin
+  loginStaff(login:any)
+  {
+    let payload = new HttpParams();
+    payload = payload.append("account",login.account);
+    payload = payload.append("password",login.password);
+    return this.http.post(this.loginStaffURL,payload);
+  }
 }

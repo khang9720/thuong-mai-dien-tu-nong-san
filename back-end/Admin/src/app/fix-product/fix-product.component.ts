@@ -17,11 +17,12 @@ import { AngularFireStorage } from '@angular/fire/compat/storage'
 export class FixProductComponent implements OnInit {
 
   constructor(private fix:FixService,private route:ActivatedRoute,private frmBD:FormBuilder,private rt:Router,private add:ThemSpService,private ff:AngularFireStorage) { this.initFixProduct();}
-
+  name:any;
   ngOnInit(): void {
     this.idProduct();
     this.getType();
     this.getProducter();
+    this.name = localStorage.getItem('accc');
   }
   //get data product id
   product_IID!:Product_Id;
@@ -77,9 +78,10 @@ export class FixProductComponent implements OnInit {
     //console.log(this.product_IID.Ma_SP);
     if(this.path == undefined)
     {
-      this.fix.fixProduct(this.fromGroup.value,this.product_IID.Hinh,this.product_IID.Ma_SP).subscribe((res:any)=>{
+      this.fix.fixProduct(this.fromGroup.value,this.product_IID.Hinh,this.product_IID.Ma_SP,this.name).subscribe((res:any)=>{
         alert(res.message);
         console.log(res.bug);
+        window.location.reload();
       },(err)=>{
         alert(err);
       });
@@ -88,8 +90,9 @@ export class FixProductComponent implements OnInit {
     {
       this.link = ("/files" + this.myDate);
       this.ff.upload(this.link,this.path);
-      this.fix.fixProduct(this.fromGroup.value,this.link,this.product_IID.Ma_SP).subscribe((res:any)=>{
+      this.fix.fixProduct(this.fromGroup.value,this.link,this.product_IID.Ma_SP,this.name).subscribe((res:any)=>{
         alert(res.message);
+        window.location.reload();
       },(err)=>{
         alert(err);
       });

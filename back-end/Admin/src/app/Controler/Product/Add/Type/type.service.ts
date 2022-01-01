@@ -12,11 +12,12 @@ export class TypeService {
 
   addURL = liink.bsaeURL + 'Add_Type.php';
 
-  addType(TypeData:any)
+  addType(TypeData:any,acc:any)
   {
     let payload = new HttpParams();
     payload = payload.append("Ma_LSP",TypeData.Ma_LSP);
     payload = payload.append("Ten_LSP",TypeData.Ten_LSP);
+    payload = payload.append("Account",acc);
     return this.http.post(this.addURL,payload);
   }
 
@@ -27,11 +28,12 @@ export class TypeService {
   }
 
   fixDataURL = liink.bsaeURL + 'Fix_Type.php';
-  fixData(TypeData:any,id:any)
+  fixData(TypeData:any,id:any,acc:any)
   {
     let payload = new HttpParams();
     payload = payload.append("Ma_LSP",id);
     payload = payload.append("Ten_LSP",TypeData.Ten_LSP);
+    payload = payload.append("Account",acc);
     return this.http.post(this.fixDataURL,payload);
   }
 }

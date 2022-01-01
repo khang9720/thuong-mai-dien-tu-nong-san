@@ -1,4 +1,10 @@
 <div class="row">
+  <div class="form-outline" style="margin-left: 20px;">
+    <input type="search" id="form1" class="form-control" [(ngModel)]="NV" (ngModelChange)="emtySearch()" placeholder="Nhập mã đơn hàng"/>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="SearchNC()">
+    <i class="fas fa-search"></i>
+  </button>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
           <tr>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { Cart } from '../../Model/cart.models';
 import { ShowService } from '../Controler/Cart/Show/show.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,14 +11,18 @@ import { CartDetails } from '../../Model/carts_details.model';
   styleUrls: ['./detail-cart.component.css']
 })
 export class DetailCartComponent implements OnInit {
-
-  constructor(private cr:ShowService,private rt:Router,private route:ActivatedRoute) { }
+  name:any;
+  constructor(private cr:ShowService,private rt:Router,private route:ActivatedRoute,private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.idCart();
     this.getIDDetailsCard();
+    this.name = localStorage.getItem('accc');
   }
-
+  ngAfterViewChecked(){
+    //your code to update the model
+    this.cdr.detectChanges();
+ }
   cart !: Cart;
   Ma_DH:any;
   Date:any;
@@ -61,9 +65,12 @@ export class DetailCartComponent implements OnInit {
   {
     console.log(sp);
     const routeParams2= this.route.snapshot.params;
-    this.cr.deleteDetailsOrder(routeParams2.id,sp).subscribe((res:any)=>{
+    this.cr.deleteDetailsOrder(routeParams2.id,sp,this.name).subscribe((res:any)=>{
       alert(res.message);
-      this.ngOnInit();
+      if(res.status == true)
+        {
+          window.location.reload();
+        }
     })
   }
 
@@ -83,13 +90,13 @@ export class DetailCartComponent implements OnInit {
   showw:any;
   filter(a:any,b:any)
   {
-    if(a == 0 && b<2)
+    if(a == 1 && b < 2)
     {
-      this.showw = 0;
+      this.showw = 1;
     }
     else
     {
-      this.showw = 1;
+      this.showw = 0;
     }
   }
 

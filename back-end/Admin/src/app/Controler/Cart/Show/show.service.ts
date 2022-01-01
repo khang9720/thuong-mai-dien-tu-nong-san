@@ -27,27 +27,30 @@ export class ShowService {
   }
 
   getCancelURL= liink.bsaeURL + 'Cancel_Order.php';
-  cancelID(id:any)
+  cancelID(id:any,acc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append("Ma_DH",id);
+    payLoad = payLoad.append("Account",acc);
     return this.http.post(this.getCancelURL,payLoad);
   }
 
   getFixShipsURL= liink.bsaeURL + 'Up_Ship_Order.php';
-  UpShip(id:any)
+  UpShip(id:any,acc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append("Ma_DH",id);
+    payLoad = payLoad.append("Account",acc);
     return this.http.post(this.getFixShipsURL,payLoad);
   }
 
   getDeleteURL= liink.bsaeURL + 'Delete_Products_Details.php';  
-  deleteDetailsOrder(iddh:any,idsp:any)
+  deleteDetailsOrder(iddh:any,idsp:any,acc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append("Ma_DH",iddh);
     payLoad = payLoad.append("Ma_SP",idsp);
+    payLoad = payLoad.append("Account",acc);
     return this.http.post(this.getDeleteURL,payLoad);
   }
 

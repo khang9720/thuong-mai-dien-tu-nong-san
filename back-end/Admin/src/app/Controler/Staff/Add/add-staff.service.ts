@@ -10,7 +10,7 @@ export class AddStaffService {
   constructor(private http:HttpClient) { }
 
   addStaffURL = liink.bsaeURL + 'Add_Staff.php';
-  addStaff(StaffData:any)
+  addStaff(StaffData:any,acc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append('Ma_NV',StaffData.Ma_NV);
@@ -19,6 +19,7 @@ export class AddStaffService {
     payLoad = payLoad.append('Gioi_Tinh',StaffData.Gioi_Tinh);
     payLoad = payLoad.append('Dia_Chi',StaffData.Dia_Chi);
     payLoad = payLoad.append('SDT',StaffData.SDT);
+    payLoad = payLoad.append('Account',acc);
     return this.http.post(this.addStaffURL,payLoad);
   }
 
@@ -39,16 +40,17 @@ export class AddStaffService {
     return this.http.post(this.addAcc,payLoad);
   }
   stats = liink.bsaeURL + 'Status_Staff.php';
-  Status_Account(KichHoat:any,Ma_NV:any)
+  Status_Account(KichHoat:any,Ma_NV:any,acc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append('KichHoat',KichHoat);
     payLoad = payLoad.append('Ma_NV',Ma_NV);
+    payLoad = payLoad.append('Account',acc);
     return this.http.post(this.stats,payLoad);
   }
 
   statsFixStaffUrl = liink.bsaeURL + 'Fix_Staff.php';
-  Fix_Data_Staff(StaffData:any,id:any)
+  Fix_Data_Staff(StaffData:any,id:any,acc:any)
   {
     let payLoad = new HttpParams();
     payLoad = payLoad.append('Ma_NV',id);
@@ -57,6 +59,7 @@ export class AddStaffService {
     payLoad = payLoad.append('Gioi_Tinh',StaffData.Gioi_Tinh);
     payLoad = payLoad.append('Dia_Chi',StaffData.Dia_Chi);
     payLoad = payLoad.append('SDT',StaffData.SDT);
+    payLoad = payLoad.append('Account',acc);
     return this.http.post(this.statsFixStaffUrl,payLoad);
   }
 }
